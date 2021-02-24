@@ -1,4 +1,6 @@
 import 'package:ShopUI/helper/constants.dart';
+import 'package:ShopUI/widgets/appbar.dart';
+import 'package:ShopUI/widgets/categories.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,40 +13,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppbar(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(kDefaultPadding),
+            child: Text(
+              "Welcome",
+              style: TextStyle(
+                color: kTextColor,
+                fontSize: 25.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          Categories(),
+        ],
+      ),
     );
   }
-}
-
-Widget customAppbar() {
-  return AppBar(
-    backgroundColor: Colors.white,
-    elevation: 0,
-    leading: IconButton(
-      icon: Icon(
-        Icons.arrow_back_rounded,
-        size: 30.0,
-        color: kTextColor,
-      ),
-      onPressed: () {},
-    ),
-    actions: [
-      IconButton(
-        icon: Icon(
-          Icons.search,
-          size: 30.0,
-          color: kTextColor,
-        ),
-        onPressed: () {},
-      ),
-      IconButton(
-        icon: Icon(
-          Icons.shopping_cart_outlined,
-          size: 30.0,
-          color: kTextColor,
-        ),
-        onPressed: () {},
-      ),
-      SizedBox(width: 10.0),
-    ],
-  );
 }
