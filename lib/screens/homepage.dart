@@ -1,5 +1,6 @@
 import 'package:ShopUI/helper/constants.dart';
 import 'package:ShopUI/models/productlist.dart';
+import 'package:ShopUI/screens/detailsScreen.dart';
 import 'package:ShopUI/widgets/appbar.dart';
 import 'package:ShopUI/widgets/categories.dart';
 import 'package:ShopUI/widgets/itemcard.dart';
@@ -44,6 +45,14 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return ItemCard(
                     product: products[index],
+                    onpress: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsPage(
+                          product: products[index],
+                        ),
+                      ),
+                    ),
                   );
                 },
               ),
